@@ -7,9 +7,6 @@ public class Movimiento : MonoBehaviour
     [Header ("Floats e ints")]
     public float movSpeed; //Espacio que se mueve
     public float espacioMover;
-    public float tiempoEspera;
-    public float contador;
-    public float contSpeed;
 
     [Header("Min y Max X")]
     public float minX;
@@ -25,74 +22,38 @@ public class Movimiento : MonoBehaviour
 
     [Header("Limite esfera")]
     public float radio;
-    Vector3 radioPlayer;
 
     [Header ("Vectores")]
     Vector3 newPos;
-    Vector3 frente;
 
     [Header("Disparo")]
     public DisparoDron disparoDron;
     private AudioSource audioSource;
     public GameObject player;
 
+    public DronMovement dronMov;
+
     private void Start() //Al llegar el contador al segundo 3 palma Unity
     {
         audioSource = this.GetComponent<AudioSource>();
         disparoDron = this.GetComponent<DisparoDron>();
-        //StartCoroutine(movimientoDron()); //Crashea
 
-        //MovimientoDron();
+        NewPosSet();
     }
-
-    //Cambiado movimiento dron del update al start y al final de la corutina para que no se esté venga llamar
 
     void Update()
     {
-        contador += Time.deltaTime;
-        if(contador > tiempoEspera) //Movido de MovimientoDron() a aquí
-        {
-            MovimientoDron();
-        }
-        
         MirarJugador();
+        //NoAlejarseMucho();
+        //NoAcercarseDemasiado();
     }
-    
+
     void MirarJugador()
     {
         transform.LookAt(player.transform.position);
     }
 
-    IEnumerator movimientoDronCorutina() //No se llama bien
-    {
-        contador = 0;
-        print("New pos 2 = " + newPos);
-        while (contador < tiempoEspera)
-        {
-            transform.position = Vector3.MoveTowards(this.transform.position, newPos, movSpeed * Time.deltaTime);
-            //transform.position = Vector3.Lerp(transform.position, newPos, 0.1f);
-
-            int chanceDisparo = Random.Range(1, 4);
-
-            if (chanceDisparo >= 2)
-            {
-                Debug.Log("Dispara");
-                disparoDron.Disparo();
-                print("Se llama la corutina");
-                StartCoroutine(movimientoDronCorutina());
-            }
-            else
-            {
-                Debug.Log("No dispara");
-                contador = 0;
-            }
-            print("Se está moviendo con el lerp"); //Se llama constantemente
-            yield return null;
-        }
-        MovimientoDron();       
-    }
-
-    void MovimientoDron()
+    public void NewPosSet()
     {
         var randX = Random.Range(minX, maxX);
         var randY = Random.Range(minY, maxY);
@@ -111,17 +72,10 @@ public class Movimiento : MonoBehaviour
             print("New pos 1 = " + newPos);
         }
 
-        //transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * movSpeed); //Teleport, me gustaria hacerlo mover rapido
-        //print("Se llama al Vector3.Lerp");
+        dronMov.newPos = newPos;
 
-        //transform.position = Vector3.MoveTowards(transform.position, newPos, movSpeed * Time.deltaTime);
-        //print("Se mueve a " + newPos);
-
-        NoAlejarseMucho();
-        NoAcercarseDemasiado();
-
-        
-
+        Debug.Log("dronMov.newPos = newPos" + newPos);
+        Debug.LogWarning("Paso 1 completado");
     }
 
     private void OnDrawGizmos()

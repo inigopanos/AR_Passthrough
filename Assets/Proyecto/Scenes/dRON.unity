@@ -217,9 +217,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movSpeed: 4
   espacioMover: 10
-  tiempoEspera: 3
-  contador: 0
-  contSpeed: 3
   minX: 1
   maxX: 10
   minZ: 2
@@ -229,6 +226,7 @@ MonoBehaviour:
   radio: 10
   disparoDron: {fileID: 0}
   player: {fileID: 1996983927}
+  dronMov: {fileID: 40919624}
 --- !u!114 &40919617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +243,23 @@ MonoBehaviour:
   player: {fileID: 1996983927}
   speed: 5
   _blasterSFX: {fileID: 8300000, guid: 3b1d072d6bdee0640977b40fda9d3004, type: 3}
+  setPos: {fileID: 0}
+--- !u!114 &40919624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40919615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50ad66bb9c45c743a0dfd6db0872be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPos: {x: 0, y: 0, z: 0}
+  speed: 5
+  movSetPos: {fileID: 0}
+  disparoDron: {fileID: 0}
 --- !u!1 &101357210
 GameObject:
   m_ObjectHideFlags: 0
