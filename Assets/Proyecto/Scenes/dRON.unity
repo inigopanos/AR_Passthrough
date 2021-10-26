@@ -215,11 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c22dc4cc68856244826ee45da95e562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movSpeed: 100
+  movSpeed: 4
   espacioMover: 10
-  tiempoEspera: 5
-  contador: 0
-  contSpeed: 3
   minX: 1
   maxX: 10
   minZ: 2
@@ -227,11 +224,44 @@ MonoBehaviour:
   minY: 2
   maxY: 5
   radio: 10
+  disparoDron: {fileID: 0}
+  player: {fileID: 1996983927}
+  dronMov: {fileID: 40919624}
+--- !u!114 &40919617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40919615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c320186913541084097c98f95f972717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   laser: {fileID: 3672585589003432687, guid: 95f01dabbaf45054d837f6e1a6531d45, type: 3}
   player: {fileID: 1996983927}
-  speed: 15
-  contadorDisparo: 2
-  _laserSFX: {fileID: 8300000, guid: 3b1d072d6bdee0640977b40fda9d3004, type: 3}
+  speed: 5
+  _blasterSFX: {fileID: 8300000, guid: 3b1d072d6bdee0640977b40fda9d3004, type: 3}
+  setPos: {fileID: 0}
+--- !u!114 &40919624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40919615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50ad66bb9c45c743a0dfd6db0872be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newPos: {x: 0, y: 0, z: 0}
+  speed: 5
+  movSetPos: {fileID: 0}
+  disparoDron: {fileID: 0}
+  contador: 0
+  nextStep: 0
 --- !u!1 &101357210
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highScore: 0
   currScore: 0
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 1896050799}
 --- !u!4 &1382420761
 Transform:
   m_ObjectHideFlags: 0
@@ -856,7 +886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1612493630
 Transform:
   m_ObjectHideFlags: 0
