@@ -215,9 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c22dc4cc68856244826ee45da95e562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movSpeed: 100
+  movSpeed: 4
   espacioMover: 10
-  tiempoEspera: 5
+  tiempoEspera: 3
   contador: 0
   contSpeed: 3
   minX: 1
@@ -227,11 +227,24 @@ MonoBehaviour:
   minY: 2
   maxY: 5
   radio: 10
+  disparoDron: {fileID: 0}
+  player: {fileID: 1996983927}
+--- !u!114 &40919617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40919615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c320186913541084097c98f95f972717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   laser: {fileID: 3672585589003432687, guid: 95f01dabbaf45054d837f6e1a6531d45, type: 3}
   player: {fileID: 1996983927}
-  speed: 15
-  contadorDisparo: 2
-  _laserSFX: {fileID: 8300000, guid: 3b1d072d6bdee0640977b40fda9d3004, type: 3}
+  speed: 5
+  _blasterSFX: {fileID: 8300000, guid: 3b1d072d6bdee0640977b40fda9d3004, type: 3}
 --- !u!1 &101357210
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +745,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382420759}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 731608e802d254842933a2e14445bbe6, type: 3}
   m_Name: 

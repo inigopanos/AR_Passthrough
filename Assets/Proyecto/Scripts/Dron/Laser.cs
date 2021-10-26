@@ -24,13 +24,4 @@ public class Laser : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    private void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.CompareTag("Suelo"))
-        {
-            Debug.Log("Laser choca contra el suelo");
-            Destroy(gameObject);
-        }
-    }
 }

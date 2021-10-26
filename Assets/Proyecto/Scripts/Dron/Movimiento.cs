@@ -32,21 +32,29 @@ public class Movimiento : MonoBehaviour
     Vector3 frente;
 
     [Header("Disparo")]
-    public Rigidbody laser;
-    public GameObject player;
-    public float speed;
-    public float contadorDisparo;
+    public DisparoDron disparoDron;
     private AudioSource audioSource;
-    public AudioClip _laserSFX;
+    public GameObject player;
 
-    private void Start()
+    private void Start() //Al llegar el contador al segundo 3 palma Unity
     {
         audioSource = this.GetComponent<AudioSource>();
+        disparoDron = this.GetComponent<DisparoDron>();
+        //StartCoroutine(movimientoDron()); //Crashea
+
+        //MovimientoDron();
     }
+
+    //Cambiado movimiento dron del update al start y al final de la corutina para que no se esté venga llamar
 
     void Update()
     {
-        MovimientoDron();
+        contador += Time.deltaTime;
+        if(contador > tiempoEspera) //Movido de MovimientoDron() a aquí
+        {
+            MovimientoDron();
+        }
+        
         MirarJugador();
     }
     
@@ -55,65 +63,65 @@ public class Movimiento : MonoBehaviour
         transform.LookAt(player.transform.position);
     }
 
-    void MovimientoDron()
+    IEnumerator movimientoDronCorutina() //No se llama bien
     {
-        contador += Time.deltaTime * contSpeed;
-
-        var randX = Random.Range(minX, maxX);
-        var randY = Random.Range(minY, maxY);
-        var randZ = Random.Range(minZ, maxZ);
-
-        if (contador > tiempoEspera)
+        contador = 0;
+        print("New pos 2 = " + newPos);
+        while (contador < tiempoEspera)
         {
-            newPos = new Vector3(randX * espacioMover, randY * espacioMover, randZ * espacioMover);
+            transform.position = Vector3.MoveTowards(this.transform.position, newPos, movSpeed * Time.deltaTime);
+            //transform.position = Vector3.Lerp(transform.position, newPos, 0.1f);
 
-            Vector3 centro = player.transform.position;
-            float distancia = Vector3.Distance(newPos, centro);
-
-            if (distancia > radio) //Se encarga de recolocar al dron dentro de una esfera creada alrededor del jugador
-            {
-                Vector3 deOrigenAObjeto = newPos - centro;
-                deOrigenAObjeto *= radio / distancia;
-                newPos = centro + deOrigenAObjeto;    
-            }
-
-            //transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * movSpeed); //Teleport, me gustaria hacerlo mover rapido
-            //print("Se llama al Vector3.Lerp");
-
-            transform.position = Vector3.MoveTowards(transform.position, newPos, movSpeed * Time.deltaTime);
-            print("Se mueve a " + newPos);
-
-            NoAlejarseMucho();
-            NoAcercarseDemasiado();
- 
             int chanceDisparo = Random.Range(1, 4);
 
             if (chanceDisparo >= 2)
             {
                 Debug.Log("Dispara");
-                StartCoroutine(Disparo());
-                contador = 0;
-                return;
+                disparoDron.Disparo();
+                print("Se llama la corutina");
+                StartCoroutine(movimientoDronCorutina());
             }
             else
+            {
                 Debug.Log("No dispara");
                 contador = 0;
+            }
+            print("Se está moviendo con el lerp"); //Se llama constantemente
+            yield return null;
         }
+        MovimientoDron();       
     }
 
-    IEnumerator Disparo() //Quiero que espere un segundo antes de disparar. Dispara varios laseres a la vez �?
+    void MovimientoDron()
     {
-        yield return new WaitForSeconds(contadorDisparo);
-        MirarJugador();
+        var randX = Random.Range(minX, maxX);
+        var randY = Random.Range(minY, maxY);
+        var randZ = Random.Range(minZ, maxZ);
 
-        frente = transform.TransformDirection(Vector3.forward) * 10;
-        Debug.DrawRay(transform.position, frente, Color.green);
+        newPos = new Vector3(randX * espacioMover, randY * espacioMover, randZ * espacioMover);
 
-        Instantiate(laser, transform.position, Quaternion.LookRotation(frente));
-        audioSource.PlayOneShot(_laserSFX, 0.5f);
-        Debug.Log("Disparando y sonando");
-       
-        contador = 0;
+        Vector3 centro = player.transform.position;
+        float distancia = Vector3.Distance(newPos, centro);
+
+        if (distancia > radio) //Se encarga de recolocar al dron dentro de una esfera creada alrededor del jugador
+        {
+            Vector3 deOrigenAObjeto = newPos - centro;
+            deOrigenAObjeto *= radio / distancia;
+            newPos = centro + deOrigenAObjeto;
+            print("New pos 1 = " + newPos);
+        }
+
+        //transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * movSpeed); //Teleport, me gustaria hacerlo mover rapido
+        //print("Se llama al Vector3.Lerp");
+
+        //transform.position = Vector3.MoveTowards(transform.position, newPos, movSpeed * Time.deltaTime);
+        //print("Se mueve a " + newPos);
+
+        NoAlejarseMucho();
+        NoAcercarseDemasiado();
+
+        
+
     }
 
     private void OnDrawGizmos()
