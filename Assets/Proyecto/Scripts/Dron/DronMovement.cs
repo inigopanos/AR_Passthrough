@@ -9,9 +9,12 @@ public class DronMovement : MonoBehaviour
     public int speed;
     public Movimiento movSetPos;
     public DisparoDron disparoDron;
+    public float contador;
+    public bool nextStep;
 
     private void Start()
     {
+        movSetPos = this.GetComponent<Movimiento>();
         disparoDron = this.GetComponent<DisparoDron>();
     }
 
@@ -21,6 +24,8 @@ public class DronMovement : MonoBehaviour
         {
             Desplazamiento();
         }
+
+        FinPaso2();
     }
 
     public void Desplazamiento()
@@ -30,9 +35,24 @@ public class DronMovement : MonoBehaviour
 
         if(transform.position == newPos)
         {
-            disparoDron.ChanceDisparo();
+            nextStep = true;
+        }
+    }
 
-            Debug.LogWarning("Paso 2 completado");
+    public void FinPaso2()
+    {
+        if (nextStep)
+        {
+            contador += Time.deltaTime;
+
+            if (contador >= 1.4)
+            {
+                disparoDron.ChanceDisparo();
+                contador = 0f;
+                nextStep = false;
+
+                Debug.LogWarning("Paso 2 completado");
+            }
         }
     }
 }

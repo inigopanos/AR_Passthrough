@@ -44,8 +44,7 @@ public class Movimiento : MonoBehaviour
     void Update()
     {
         MirarJugador();
-        //NoAlejarseMucho();
-        //NoAcercarseDemasiado();
+
     }
 
     void MirarJugador()
@@ -73,6 +72,9 @@ public class Movimiento : MonoBehaviour
         }
 
         dronMov.newPos = newPos;
+
+        NoAlejarseMucho();
+        //NoAcercarseDemasiado();
 
         Debug.Log("dronMov.newPos = newPos" + newPos);
         Debug.LogWarning("Paso 1 completado");
