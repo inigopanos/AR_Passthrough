@@ -77,8 +77,11 @@ public class Movimiento : MonoBehaviour
                 newPos = centro + deOrigenAObjeto;    
             }
 
-            transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * movSpeed); //Teleport, me gustar�a hacerlo mov r�pido
-            print("Se llama al Vector3.Lerp");
+            //transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * movSpeed); //Teleport, me gustaria hacerlo mover rapido
+            //print("Se llama al Vector3.Lerp");
+
+            transform.position = Vector3.MoveTowards(transform.position, newPos, movSpeed * Time.deltaTime);
+            print("Se mueve a " + newPos);
 
             NoAlejarseMucho();
             NoAcercarseDemasiado();

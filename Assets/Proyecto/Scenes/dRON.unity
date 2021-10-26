@@ -642,6 +642,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 118216610}
     m_Modifications:
+    - target: {fileID: 1638271092, guid: b085723b20be7ef42b81f4cd35387818, type: 3}
+      propertyPath: manoDer
+      value: 
+      objectReference: {fileID: 118216610}
     - target: {fileID: 4814065250904774050, guid: b085723b20be7ef42b81f4cd35387818,
         type: 3}
       propertyPath: m_Name
@@ -651,21 +655,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5297691640055156504, guid: b085723b20be7ef42b81f4cd35387818,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5297691640055156504, guid: b085723b20be7ef42b81f4cd35387818,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.050000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 5297691640055156504, guid: b085723b20be7ef42b81f4cd35387818,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.050000004
       objectReference: {fileID: 0}
     - target: {fileID: 5297691640055156504, guid: b085723b20be7ef42b81f4cd35387818,
         type: 3}
@@ -731,7 +720,7 @@ GameObject:
   - component: {fileID: 1382420760}
   m_Layer: 0
   m_Name: Manager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -884,30 +873,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1638271090 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4814065250904774050, guid: b085723b20be7ef42b81f4cd35387818,
-    type: 3}
-  m_PrefabInstance: {fileID: 1145069791}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1638271092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1638271090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2429393821e72e4499c00be924287a6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manoDer: {fileID: 118216610}
-  laserClips:
-  - {fileID: 8300000, guid: c76ed9632a5405e4d984983d9ce50a64, type: 3}
-  - {fileID: 8300000, guid: 8a1aa069494c6cf489d9a7afaefdc24e, type: 3}
-  - {fileID: 8300000, guid: 77b2fa823a19ac941abd78af36cc0d4d, type: 3}
-  - {fileID: 8300000, guid: 411cb023437a4c241af7fc50f2755132, type: 3}
 --- !u!1 &1896050797
 GameObject:
   m_ObjectHideFlags: 0
