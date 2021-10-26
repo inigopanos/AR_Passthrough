@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Manager
   - Laser
+  - EL
   layers:
   - Default
   - TransparentFX
