@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "1WMHH844HC0476",
         "name": "com.DefaultCompany.AR",
-        "processId": 14391,
+        "processId": 8157,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,61 +11,43 @@
         {
             "deviceId": "1WMHH844HC0476",
             "name": "com.oculus.shellenv",
-            "processId": 3093,
+            "processId": 10904,
             "exited": false
         },
         {
             "deviceId": "1WMHH844HC0476",
             "name": "com.DefaultCompany.AR",
-            "processId": 18919,
+            "processId": 25400,
             "exited": true
         },
         {
             "deviceId": "1WMHH844HC0476",
             "name": "com.DefaultCompany.AR",
-            "processId": 19467,
+            "processId": 28864,
             "exited": true
         },
         {
             "deviceId": "1WMHH844HC0476",
             "name": "com.DefaultCompany.AR",
-            "processId": 19829,
+            "processId": 1157,
             "exited": true
         },
         {
             "deviceId": "1WMHH844HC0476",
             "name": "com.DefaultCompany.AR",
-            "processId": 20900,
+            "processId": 2419,
             "exited": true
         },
         {
             "deviceId": "1WMHH844HC0476",
             "name": "com.DefaultCompany.AR",
-            "processId": 21411,
+            "processId": 5293,
             "exited": true
         },
         {
             "deviceId": "1WMHH844HC0476",
             "name": "com.DefaultCompany.AR",
-            "processId": 22240,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHH844HC0476",
-            "name": "com.DefaultCompany.AR",
-            "processId": 13420,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHH844HC0476",
-            "name": "com.DefaultCompany.AR",
-            "processId": 13931,
-            "exited": false
-        },
-        {
-            "deviceId": "1WMHH844HC0476",
-            "name": "com.DefaultCompany.AR",
-            "processId": 14391,
+            "processId": 8157,
             "exited": false
         }
     ],

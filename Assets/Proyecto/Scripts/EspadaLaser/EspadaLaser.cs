@@ -17,7 +17,6 @@ public class EspadaLaser : MonoBehaviour
 
     void Start()
     {
-        //this.gameObject.transform.parent = manoDer.transform;
         audioSource = this.GetComponent<AudioSource>();
         manager = GameObject.FindGameObjectWithTag("Manager");
     }
@@ -26,7 +25,7 @@ public class EspadaLaser : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Laser"))
         {
-            Debug.Log("Ha destruido " + col.gameObject.name);
+            Debug.LogWarning("Ha destruido " + col.gameObject.name);
 
             audioSource.clip = laserClips[Random.Range(0, laserClips.Length)];
             audioSource.Play();
@@ -34,6 +33,13 @@ public class EspadaLaser : MonoBehaviour
             manager.GetComponent<ScoreManager>().SumarPuntos(1);
 
             Destroy(col.gameObject);
+        }
+        else
+        {
+            Debug.LogWarning("Ha destruido aunque no debiera " + col.gameObject.name);
+
+            audioSource.clip = laserClips[Random.Range(0, laserClips.Length)];
+            audioSource.Play();
         }
     }
 }

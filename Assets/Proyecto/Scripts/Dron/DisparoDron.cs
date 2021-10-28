@@ -5,13 +5,14 @@ using UnityEngine;
 public class DisparoDron : MonoBehaviour
 {
     [Header("Disparo")]
-    public Rigidbody laser;
+    public GameObject laser;
     public GameObject player;
     public float speed;
     private AudioSource audioSource;
     public AudioClip _blasterSFX;
     Vector3 frente;
     public Movimiento setPos;
+    public int chanceDisparo;
 
     public void Start()
     {
@@ -21,10 +22,11 @@ public class DisparoDron : MonoBehaviour
 
     public void ChanceDisparo()
     {
-        int chanceDisparo = Random.Range(1, 4);
+        chanceDisparo = Random.Range(1, 4);
 
         if (chanceDisparo >= 2)
         {
+            chanceDisparo = 0;
             Debug.Log("Dispara");
             Disparo();
             print("Se llama la corutina");

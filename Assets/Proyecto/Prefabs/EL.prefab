@@ -891,7 +891,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8a1aa069494c6cf489d9a7afaefdc24e, type: 3}
   - {fileID: 8300000, guid: 77b2fa823a19ac941abd78af36cc0d4d, type: 3}
   - {fileID: 8300000, guid: 411cb023437a4c241af7fc50f2755132, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1638271093}
   manager: {fileID: 0}
 --- !u!1 &4877525693650696002
 GameObject:
@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 678508047084659489}
   - component: {fileID: 6038142152802018254}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: sABLE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -985,7 +985,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.4
+  m_Radius: 0.8
   m_Height: 18.300001
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
